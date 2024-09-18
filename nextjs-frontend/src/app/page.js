@@ -2,38 +2,37 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Tile from '@/components/Tile.js';
-import Badge from 'react-bootstrap/Badge';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-export default function Home() {
+import departureImg from '../../public/images/plane_departure_grey.svg';
+import arrivalsImg from '../../public/images/plane_landing_grey.svg';
+import shopImg from '../../public/images/shop.svg';
+import forecastImg from '../../public/images/forecast.svg';
 
-    var f1_title = "F1 2024";
-    var f1_subtitle = "Dati sulla F1 del campionato 2024"
-    var f1_text = "Esempio di NextJS page routing con dei dati sulla Formula 1 prelevati da un backend";
-    var f1_link = "Vai alla sezione";
-    var f1_linkref = "/f1";
+export default function Home() {
 
   return (
     <div>
       <main>
-      <Container>
-        <Row>
-          <h1><Badge bg="primary">SPORTS CENTER</Badge></h1>
-        </Row>
-        <Row>
-            <Col>
-                <Tile title={f1_title} subtitle={f1_subtitle} text={f1_text} link={f1_link} linkref={f1_linkref} />
-            </Col>
-        </Row>
-      </Container>
-
-
-
-
-      </main>
-      
+        <Container>
+          <Row md={4}>
+              <Col>
+                  <Tile src={departureImg} title="Partenze" text="Monitora i voli in partenza" href="/departures" link="Vai alle partenze" />
+              </Col>
+              <Col>
+                  <Tile src={arrivalsImg} title="Arrivi" text="Monitora i voli in arrivo" href="/arrivals" link="Vai agli arrivi" />
+              </Col>
+              <Col>
+                  <Tile src={shopImg} title="Negozi" text="Esplora tutti i negozi disponibili" href="/shops" link="Visualizza i negozi" />
+              </Col>
+              <Col>
+                  <Tile src={forecastImg} title="Previsioni" text="Consulta il meteo" href="/forecast" link="Visualizza il meteo" />
+              </Col>
+          </Row>
+        </Container>
+      </main>  
     </div>
   );
 }
